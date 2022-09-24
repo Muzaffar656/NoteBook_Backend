@@ -4,12 +4,14 @@ const Notes = require("../models/Notes");
 const fetchuser = require("../middelware/fetchuser");
 const { body, validationResult } = require('express-validator');
 
+
 router.get("/fetchallnotes", fetchuser, async (req, res) => {
   const notes = await Notes.find({ user: req.user.id });
   // console.log(req.user.id)
   res.json(notes);
 });
 
+// Router
 
 router.post(
   "/addnotes",
